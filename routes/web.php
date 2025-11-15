@@ -4,9 +4,17 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 
+use App\Http\Controllers\ClienteController;
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+
+Route::middleware(['web','auth'])->group(function () {
+    Route::resource('cliente', ClienteController::class);
+});
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

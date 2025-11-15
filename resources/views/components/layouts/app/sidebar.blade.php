@@ -8,7 +8,15 @@ $groups = [
                 'url' => route('dashboard'),
                 'current' => request()->routeIs('dashboard')
             ]
-        ]
+        ],
+        'Catálogos' => [
+            [
+                'name' => 'Cliente',
+                'icon' => 'user',
+                'url' => route('cliente.index'),
+                'current' => request()->routeIs('cliente.*')
+            ]
+        ],
 ];
 
 @endphp
